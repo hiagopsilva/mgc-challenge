@@ -17,6 +17,7 @@ type Props = {
 
 const PublicRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
   const token = Storage.getToken();
+
   return (
     <Route
       {...rest}

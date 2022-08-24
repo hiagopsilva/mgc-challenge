@@ -15,20 +15,20 @@ type Props = {
   exact?: boolean;
 };
 
-const PublicRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
+const PrivateRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
   const token = Storage.getToken();
   return (
     <Route
       {...rest}
       render={(props): JSX.Element => (
         <>
-          <If condition={isEmpty(token)}>
+          <If condition={!isEmpty(token)}>
             <Component {...props} />
           </If>
-          <If condition={!isEmpty(token)}>
+          <If condition={isEmpty(token)}>
             <Redirect
               to={{
-                pathname: Routing.HOME,
+                pathname: Routing.LOGIN,
                 state: { from: props.location.pathname },
               }}
             />
@@ -39,4 +39,4 @@ const PublicRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
   );
 };
 
-export default PublicRoute;
+export default PrivateRoute;

@@ -1,20 +1,18 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 
-import { inject, observer } from 'mobx-react';
-
-import { Home } from '~/scenes';
+import { Home, Login } from '~/scenes';
 
 import Guest from './guest';
+import Private from './private';
 import { Routing } from './routing';
 
 const RoutesContainer: React.FC = () => (
   <Switch>
-    <Guest path="/" component={Home} />
-    <Guest path="/home" component={Home} />
+    <Guest exact path={Routing.LOGIN} component={Login} />
+    <Private path={Routing.HOME} component={Home} />
   </Switch>
 );
 
 export { Routing };
-export default inject('routing')(observer(RoutesContainer));
-// export default RoutesContainer;
+export default RoutesContainer;

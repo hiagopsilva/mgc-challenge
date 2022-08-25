@@ -1,15 +1,24 @@
-import React from 'react';
+/* eslint-disable import-helpers/order-imports */
+import React, { useContext } from 'react';
 
-import { Formik } from '~/utils';
+import { BrowserHistory, Formik } from '~/utils';
+import { AuthContext } from '~/contexts/auth';
 
+import { Routing } from '~/routes';
 import { initialValues, validationForm } from './form';
 import Login from './Login';
 
-type Props = {};
+type Props = {
+  history: BrowserHistory;
+};
 
-const Home: React.FC<Props> = () => {
-  const submitForm = (values: UserType.Login) => {
-    console.log(values);
+const LoginContainer: React.FC<Props> = ({ history }) => {
+  const { signIn } = useContext(AuthContext);
+
+  const submitForm = async (values: UserType.Login) => {
+    const response = await signIn(values);
+
+    response && history.push(Routing.HOME);
   };
 
   return (
@@ -23,4 +32,4 @@ const Home: React.FC<Props> = () => {
   );
 };
 
-export default Home;
+export default LoginContainer;

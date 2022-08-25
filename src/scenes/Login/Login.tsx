@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Logo } from '~/assets';
-import { Routing } from '~/routes';
 import { alert, FormikProps, useFormikContext } from '~/utils';
 
 import {
@@ -56,7 +55,7 @@ const Login: React.FC<Props> = () => {
             value={values.email}
             name="email"
             id="email"
-            type="email"
+            // type="email"
             onChange={handleChange('email')}
             error={touched.email ? !!errors.email : false}
           />
@@ -75,8 +74,9 @@ const Login: React.FC<Props> = () => {
           />
         </Line>
 
-        <Button onClick={submitForm}>
-          <Link to={Routing.HOME}>Login</Link>
+        <Button onClick={submitForm} type="button">
+          {/* <Link to={Routing.HOME}>Login</Link> */}
+          login
         </Button>
       </Content>
     </Container>

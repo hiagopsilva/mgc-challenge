@@ -1,5 +1,4 @@
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
 
@@ -14,6 +13,7 @@ import {
   global as GlobalStyles,
 } from '~/theme';
 
+import { AuthProvider } from './contexts/auth';
 import { Toastify } from './utils/modules';
 
 const theme = {
@@ -25,11 +25,11 @@ const theme = {
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
+    <AuthProvider>
       <Toastify.ToastContainer />
 
       <Routes />
-    </BrowserRouter>
+    </AuthProvider>
     <GlobalStyles />
   </ThemeProvider>,
   document.getElementById('root'),

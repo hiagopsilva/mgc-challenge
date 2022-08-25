@@ -15,6 +15,10 @@ export const Container = styled.div`
   align-items: center;
 
   background: #e4e4f0;
+
+  @media ${inMobile} {
+    justify-content: center;
+  }
 `;
 
 export const Content = styled.div`
@@ -27,15 +31,13 @@ export const Content = styled.div`
   border-radius: ${pxToRem(4)};
 
   width: ${pxToRem(420)};
-  padding: 40px 30px;
+  padding: ${pxToRem(40)} ${pxToRem(30)};
   margin: auto;
 
   @media ${inMobile} {
-    display: none;
-  }
+    margin: auto ${pxToRem(12)};
 
-  @media ${inTablet} {
-    display: none;
+    padding: ${pxToRem(24)} ${pxToRem(16)};
   }
 `;
 
@@ -43,6 +45,10 @@ export const Title = styled.h1`
   font-size: ${pxToRem(28)};
 
   color: #1e90ff;
+
+  @media ${inMobile} {
+    font-size: ${pxToRem(24)};
+  }
 `;
 
 export const Description = styled.h2`
@@ -54,6 +60,10 @@ export const Description = styled.h2`
   margin-top: ${pxToRem(12)};
 
   margin-bottom: ${pxToRem(16)};
+
+  @media ${inMobile} {
+    font-size: ${pxToRem(14)};
+  }
 `;
 
 export const Line = styled.div`
@@ -120,6 +130,10 @@ export const WrapperLogo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media ${inMobile} {
+    display: none;
+  }
 `;
 
 export const Image = styled.img`

@@ -30,7 +30,7 @@ const Login: React.FC<Props> = () => {
   }: FormikProps<UserType.Login> = useFormikContext();
 
   useEffect(() => {
-    if (touched.email || errors.email || touched.password || errors.password)
+    if (errors.email || errors.password)
       return alert({
         message: 'Por favor, preencha todos os campos corretamente!',
         type: 'error',

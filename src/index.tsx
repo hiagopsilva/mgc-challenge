@@ -14,7 +14,6 @@ import {
   global as GlobalStyles,
 } from '~/theme';
 
-import { Home } from './scenes';
 import { Toastify } from './utils/modules';
 
 const theme = {

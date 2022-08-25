@@ -1,8 +1,8 @@
 import { request } from '~/services';
 
 class UserAPI {
-  static fetch = async (): Promise<any> => {
-    const { data } = await request.post('/fetch');
+  static Auth = async (): Promise<any> => {
+    const { data } = await request.post('/auth');
     return data;
   };
 }

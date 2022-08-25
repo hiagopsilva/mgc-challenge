@@ -14,7 +14,7 @@ export default class FilmStore {
   @action
   list = async (): Promise<boolean | null> => {
     try {
-      const response = await UserAPI.fetch();
+      const response = await UserAPI.Auth();
 
       if (response) {
         this.data = [...this.data, ...response];

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Logo } from '~/assets';
 import { Routing } from '~/routes';
+import { alert, FormikProps, useFormikContext } from '~/utils';
 
 import {
   Button,
@@ -19,33 +20,67 @@ import {
 
 type Props = {};
 
-const Login: React.FC<Props> = () => (
-  <Container>
-    <WrapperLogo>
-      <Image src={`${Logo}`} alt="Logo Template" />
-    </WrapperLogo>
-    <Content>
-      <Title>MGC Holding challenge</Title>
+const Login: React.FC<Props> = () => {
+  const {
+    values,
+    submitForm,
+    handleChange,
+    errors,
+    touched,
+  }: FormikProps<UserType.Login> = useFormikContext();
 
-      <Description>Bem vindo de volta, insira seus dados de login.</Description>
+  useEffect(() => {
+    if (touched.email || errors.email || touched.password || errors.password)
+      return alert({
+        message: 'Por favor, preencha todos os campos corretamente!',
+        type: 'error',
+      });
+  }, [touched]);
 
-      <Line>
-        <Text>Email</Text>
+  return (
+    <Container>
+      <WrapperLogo>
+        <Image src={`${Logo}`} alt="Logo Template" />
+      </WrapperLogo>
+      <Content>
+        <Title>MGC Holding challenge</Title>
 
-        <Input />
-      </Line>
+        <Description>
+          Bem vindo de volta, insira seus dados de login.
+        </Description>
 
-      <Line className="last-child">
-        <Text>Senha</Text>
+        <Line>
+          <Text>Email</Text>
 
-        <Input />
-      </Line>
+          <Input
+            value={values.email}
+            name="email"
+            id="email"
+            type="email"
+            onChange={handleChange('email')}
+            error={touched.email ? !!errors.email : false}
+          />
+        </Line>
 
-      <Button>
-        <Link to={Routing.HOME}>Login</Link>
-      </Button>
-    </Content>
-  </Container>
-);
+        <Line className="last-child">
+          <Text>Senha</Text>
+
+          <Input
+            value={values.password}
+            name="password"
+            id="password"
+            onChange={handleChange('password')}
+            error={touched.password ? !!errors.password : false}
+            type="password"
+          />
+        </Line>
+
+        <Button onClick={submitForm}>
+          <Link to={Routing.HOME}>Login</Link>
+        </Button>
+      </Content>
+    </Container>
+  );
+};
 
 export default Login;

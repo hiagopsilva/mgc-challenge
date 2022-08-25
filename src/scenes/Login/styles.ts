@@ -2,9 +2,12 @@ import styled from 'styled-components';
 
 import { getTheme, pxToRem } from '~/utils';
 
+type PropsInput = {
+  error?: boolean;
+};
+
 // Breakpoint
 const inMobile = getTheme('inMobile');
-const inTablet = getTheme('inTablet');
 
 export const Container = styled.div`
   width: 100%;
@@ -83,13 +86,13 @@ export const Text = styled.span`
   color: #3b3d4d;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<PropsInput>`
   width: 100%;
   height: ${pxToRem(42)};
 
   padding: 0 ${pxToRem(8)};
   border-radius: ${pxToRem(4)};
-  border: 1px solid #e4e4f0;
+  border: 1px solid ${props => (props.error ? 'red' : '#e4e4f0')};
   background-color: #f9f9f9;
 
   margin-top: ${pxToRem(6)};

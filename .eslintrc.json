@@ -51,6 +51,8 @@
     "no-shadow": "off",
     "react-hooks/exhaustive-deps": "off",
     "no-unused-expressions": "off",
+    "react/prop-types": "off",
+    "react/jsx-no-constructed-context-values": "off",
     "consistent-return": "off",
     "import/extensions": [
       "error",

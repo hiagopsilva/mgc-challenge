@@ -113,7 +113,7 @@ const Home: React.FC<Props> = ({
             <WrapperList>
               {dataAgreements.map((item: any) => (
                 <Item key={item.id}>
-                  <TextItem>{item.valor}</TextItem>
+                  <TextItem>{currencyFormat(item.valor)}</TextItem>
                   <TextItem>{item.parcelas}</TextItem>
                   <TextItem>{item.vencimento}</TextItem>
                   <TextItem>{item.msg}</TextItem>

@@ -6,6 +6,15 @@ type PropsInput = {
   error?: boolean;
 };
 
+const primaryBorder = getTheme('primary.border');
+const primaryLight = getTheme('primary.light');
+const primaryMain = getTheme('primary.main');
+const primaryContrast = getTheme('primary.contrast');
+const primaryDark = getTheme('primary.dark');
+const secondaryLight = getTheme('secondary.light');
+const failure = getTheme('failure');
+const secondaryContrast = getTheme('secondary.contrast');
+
 // Breakpoint
 const inMobile = getTheme('inMobile');
 
@@ -17,7 +26,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  background: #e4e4f0;
+  background: ${primaryBorder};
 
   @media ${inMobile} {
     justify-content: center;
@@ -29,8 +38,8 @@ export const Content = styled.div`
 
   flex-direction: column;
 
-  background-color: #fff;
-  border: 1px solid #e4e4f0;
+  background-color: ${primaryLight};
+  border: 1px solid ${primaryBorder};
   border-radius: ${pxToRem(4)};
 
   width: ${pxToRem(420)};
@@ -48,7 +57,7 @@ export const Content = styled.div`
 export const Title = styled.h1`
   font-size: ${pxToRem(28)};
 
-  color: #1e90ff;
+  color: ${primaryMain};
 
   @media ${inMobile} {
     font-size: ${pxToRem(24)};
@@ -59,7 +68,7 @@ export const Description = styled.h2`
   font-size: ${pxToRem(16)};
   font-weight: 400;
 
-  color: #3b3d4d;
+  color: ${primaryDark};
 
   margin-top: ${pxToRem(12)};
 
@@ -84,7 +93,7 @@ export const Text = styled.span`
   font-size: ${pxToRem(14)};
 
   font-weight: bold;
-  color: #3b3d4d;
+  color: ${primaryDark};
 `;
 
 export const Input = styled.input<PropsInput>`
@@ -93,13 +102,14 @@ export const Input = styled.input<PropsInput>`
 
   padding: 0 ${pxToRem(8)};
   border-radius: ${pxToRem(4)};
-  border: 1px solid ${props => (props.error ? 'red' : '#e4e4f0')};
-  background-color: #f9f9f9;
+  border: 1px solid
+    ${props => (props.error ? failure(props) : primaryLight(props))};
+  background-color: ${secondaryLight};
 
   margin-top: ${pxToRem(6)};
 
   font-size: ${pxToRem(16)};
-  color: #000;
+  color: ${secondaryContrast};
 `;
 
 export const Button = styled.button`
@@ -108,24 +118,24 @@ export const Button = styled.button`
 
   margin-top: ${pxToRem(40)};
   border-radius: ${pxToRem(4)};
-  border: 1px solid #e4e4f0;
-  background-color: #1e90ff;
+  border: 1px solid ${primaryBorder};
+  background-color: ${primaryMain};
 
   cursor: pointer;
 
   &:hover {
-    background-color: #836fff;
+    background-color: ${primaryContrast};
   }
 
   span {
     font-size: ${pxToRem(16)};
     font-weight: bold;
-    color: #fff;
+    color: ${primaryLight};
   }
 `;
 
 export const WrapperLogo = styled.div`
-  background-color: #fff;
+  background-color: ${primaryLight};
 
   width: 50%;
   height: 100vh;

@@ -15,7 +15,7 @@ export default {
     light: '#f9f9f9',
     main: '#696969',
     dark: 'rgba(0,0,0,0.5)',
-    contrast: '',
+    contrast: '#000',
   },
   tertiary: {
     light: '',

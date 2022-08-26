@@ -28,7 +28,7 @@ const Login: React.FC<Props> = () => {
   }: FormikProps<UserType.Login> = useFormikContext();
 
   useEffect(() => {
-    if (errors.email || errors.password)
+    if (errors.user || errors.password)
       return alert({
         message: 'Por favor, preencha todos os campos corretamente!',
         type: 'error',
@@ -48,15 +48,14 @@ const Login: React.FC<Props> = () => {
         </Description>
 
         <Line>
-          <Text>Email</Text>
+          <Text>User</Text>
 
           <Input
-            value={values.email}
-            name="email"
-            id="email"
-            // type="email"
-            onChange={handleChange('email')}
-            error={touched.email ? !!errors.email : false}
+            value={values.user}
+            name="user"
+            id="user"
+            onChange={handleChange('user')}
+            error={touched.user ? !!errors.user : false}
           />
         </Line>
 

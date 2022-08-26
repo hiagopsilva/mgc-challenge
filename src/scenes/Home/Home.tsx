@@ -20,6 +20,9 @@ import {
   Input,
   SearchIcon,
   WrapperSearchIcon,
+  WrapperList,
+  Item,
+  TextItem,
 } from './styles';
 
 type Props = {
@@ -59,6 +62,19 @@ const Home: React.FC<Props> = ({ username = '' }) => {
               <SearchIcon />
             </WrapperSearchIcon>
           </WrapperSearch>
+
+          <WrapperList>
+            {[
+              1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4,
+              5, 6, 7, 8, 9,
+            ].map(item => (
+              <Item>
+                <TextItem>123.456.789-10</TextItem>
+                <TextItem>VITOR LUIZ ANTUNES</TextItem>
+                <TextItem>05/03/1998</TextItem>
+              </Item>
+            ))}
+          </WrapperList>
         </ContentDebts>
 
         <WrapperNavigation>

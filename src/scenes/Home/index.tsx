@@ -26,22 +26,27 @@ const HomeContainer: React.FC<Props> = () => {
   //   history.push(Routing.LOGIN);
   // }, 5000);
 
+  const handleLoading = (stateLoading: boolean) => setLoading(stateLoading);
+
   const fetchDataDebtors = async () => {
     const { data } = await request.get('/debtors/list');
 
     setDataDebtors(data);
+    handleLoading(false);
   };
 
   const fetchDataDebts = async () => {
     const { data } = await request.get('/debts/list');
 
     setDataDebts(data);
+    handleLoading(false);
   };
 
   const fetchDataAgreements = async () => {
     const { data } = await request.get('/agreements/list');
 
     setAgreements(data);
+    handleLoading(false);
   };
 
   useEffect(() => {
@@ -49,12 +54,11 @@ const HomeContainer: React.FC<Props> = () => {
   }, []);
 
   useEffect(() => {
-    setLoading(prevState => !prevState);
+    handleLoading(true);
+
     stateMenu === OPTION_MENU.DEBTORS && fetchDataDebtors();
     stateMenu === OPTION_MENU.DEBTS && fetchDataDebts();
     stateMenu === OPTION_MENU.AGREEMENTS && fetchDataAgreements();
-
-    setLoading(prevState => !prevState);
   }, [stateMenu]);
 
   return (

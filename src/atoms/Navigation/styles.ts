@@ -6,6 +6,8 @@ const primaryBorder = getTheme('primary.border');
 const primaryLight = getTheme('primary.light');
 const primaryMain = getTheme('primary.main');
 
+const inMobile = getTheme('inMobile');
+
 export const Wrapper = styled.div`
   width: ${pxToRem(200)};
   height: ${pxToRem(140)};
@@ -18,6 +20,13 @@ export const Wrapper = styled.div`
   margin-top: ${pxToRem(24)};
 
   padding: ${pxToRem(16)};
+
+  @media ${inMobile} {
+    width: 100%;
+    height: ${pxToRem(70)};
+
+    margin-top: ${pxToRem(12)};
+  }
 `;
 
 export const ContentOption = styled.div`
@@ -29,6 +38,11 @@ export const ContentOption = styled.div`
   flex: 1;
 
   flex-direction: column;
+
+  @media ${inMobile} {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 `;
 
 export const Option = styled.div`
@@ -45,6 +59,10 @@ export const Option = styled.div`
 
     background-color: transparent;
     border-radius: 50%;
+
+    @media ${inMobile} {
+      display: none;
+    }
   }
 
   div.active {
@@ -53,9 +71,17 @@ export const Option = styled.div`
 
   span {
     margin-left: ${pxToRem(8)};
+
+    @media ${inMobile} {
+      margin-left: 0;
+    }
   }
 
   span.active {
     color: ${primaryMain};
+
+    @media ${inMobile} {
+      border-bottom: 1px solid ${primaryMain};
+    }
   }
 `;

@@ -60,6 +60,7 @@ export const ContentDebts = styled.div`
 
   @media ${inMobile} {
     margin-right: 0;
+    margin-top: ${pxToRem(12)};
   }
 `;
 

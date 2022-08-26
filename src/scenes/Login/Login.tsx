@@ -4,7 +4,6 @@ import { Logo } from '~/assets';
 import { FormikProps, useFormikContext } from '~/utils';
 
 import {
-  Button,
   Container,
   Content,
   Description,
@@ -12,6 +11,7 @@ import {
   Title,
   WrapperLogo,
   TextInputStyled,
+  ButtonStyled,
 } from './styles';
 
 type Props = {};
@@ -56,9 +56,7 @@ const Login: React.FC<Props> = () => {
           type="password"
         />
 
-        <Button onClick={submitForm} type="button">
-          <span>login</span>
-        </Button>
+        <ButtonStyled onClick={submitForm} label="login" />
       </Content>
     </Container>
   );

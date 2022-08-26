@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-import { TextInput } from '~/components';
+import { Button, TextInput } from '~/components';
 import { getTheme, pxToRem } from '~/utils';
 
 const primaryBorder = getTheme('primary.border');
 const primaryLight = getTheme('primary.light');
 const primaryMain = getTheme('primary.main');
-const primaryContrast = getTheme('primary.contrast');
 const primaryDark = getTheme('primary.dark');
 
 // Breakpoint
@@ -73,28 +72,6 @@ export const Description = styled.h2`
   }
 `;
 
-export const Button = styled.button`
-  width: 100%;
-  height: ${pxToRem(42)};
-
-  margin-top: ${pxToRem(40)};
-  border-radius: ${pxToRem(4)};
-  border: 1px solid ${primaryBorder};
-  background-color: ${primaryMain};
-
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${primaryContrast};
-  }
-
-  span {
-    font-size: ${pxToRem(16)};
-    font-weight: bold;
-    color: ${primaryLight};
-  }
-`;
-
 export const WrapperLogo = styled.div`
   background-color: ${primaryLight};
 
@@ -121,3 +98,5 @@ export const TextInputStyled = styled(TextInput)`
     margin-top: ${pxToRem(20)};
   }
 `;
+
+export const ButtonStyled = styled(Button)``;

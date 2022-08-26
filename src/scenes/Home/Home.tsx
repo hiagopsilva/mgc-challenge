@@ -13,6 +13,7 @@ type Props = {
   dataDebts: any;
   dataAgreements: any;
   loading: boolean;
+  countTotal: number;
 
   setStateMenu: (value: string) => void;
   handleLogout: () => void;
@@ -27,6 +28,7 @@ const Home: React.FC<Props> = ({
   dataDebtors,
   loading,
   handleLogout,
+  countTotal,
 }) => {
   return (
     <Container>
@@ -40,7 +42,7 @@ const Home: React.FC<Props> = ({
         <ContentDebts>
           <div className="header">
             <Title>{stateMenu}</Title>
-            <span className="info">Total de 12 resultados</span>
+            <span className="info">Total de {countTotal} resultados</span>
           </div>
 
           <Search />

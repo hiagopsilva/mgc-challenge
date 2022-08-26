@@ -18,6 +18,7 @@ const HomeContainer: React.FC<Props> = () => {
   const [dataDebts, setDataDebts] = useState([]);
   const [dataAgreements, setAgreements] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [countTotal, setCountTotal] = useState(0);
 
   const { name } = useContext(AuthContext);
 
@@ -28,6 +29,7 @@ const HomeContainer: React.FC<Props> = () => {
 
     setDataDebtors(data);
     handleLoading(false);
+    setCountTotal(data.length);
   };
 
   const fetchDataDebts = async () => {
@@ -35,6 +37,7 @@ const HomeContainer: React.FC<Props> = () => {
 
     setDataDebts(data);
     handleLoading(false);
+    setCountTotal(data.length);
   };
 
   const fetchDataAgreements = async () => {
@@ -42,6 +45,7 @@ const HomeContainer: React.FC<Props> = () => {
 
     setAgreements(data);
     handleLoading(false);
+    setCountTotal(data.length);
   };
 
   const handleLogout = async () => {
@@ -71,6 +75,7 @@ const HomeContainer: React.FC<Props> = () => {
       dataAgreements={dataAgreements}
       loading={loading}
       handleLogout={handleLogout}
+      countTotal={countTotal}
     />
   );
 };

@@ -1,21 +1,11 @@
-/* eslint-disable no-useless-concat */
-/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 
-import { If } from '~/components';
+import { Header, If } from '~/components';
 import { formatCPF, formatDate, currencyFormat } from '~/utils';
 
 import {
   Container,
-  Image,
   Content,
-  Header,
-  ContentLeft,
-  ContentRight,
-  TitleAvatar,
-  AvatarSVG,
-  WrapperAvatar,
-  Logout,
   WrapperNavigation,
   ContentOption,
   Option,
@@ -49,22 +39,7 @@ const Home: React.FC<Props> = ({
 }) => {
   return (
     <Container>
-      <Header>
-        <ContentLeft>
-          <Image />
-        </ContentLeft>
-
-        <ContentRight>
-          <div className="content-avatar">
-            <TitleAvatar>Olá, {username}</TitleAvatar>
-            <Logout to="/">Sair</Logout>
-          </div>
-
-          <WrapperAvatar>
-            <AvatarSVG />
-          </WrapperAvatar>
-        </ContentRight>
-      </Header>
+      <Header username={username} />
 
       <Content>
         <ContentDebts>

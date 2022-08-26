@@ -6,16 +6,15 @@ export default {
 
   primary: {
     light: '#fff',
-    main: '#46eb34',
-    dark: '#111411',
-    text: '#f9f9f9',
-    contrast: '#313136',
+    main: '#',
+    dark: '#',
+    border: '#e4e4f0',
+    contrast: '',
   },
   secondary: {
     light: '',
     main: '',
     dark: '',
-    hover: '',
     contrast: '',
   },
   tertiary: {

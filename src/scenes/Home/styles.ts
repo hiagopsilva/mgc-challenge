@@ -94,60 +94,6 @@ export const Logout = styled(Link)`
   cursor: pointer;
 `;
 
-export const WrapperNavigation = styled.div`
-  width: ${pxToRem(200)};
-  height: ${pxToRem(140)};
-
-  background-color: #fff;
-  border: 1px solid #e4e4f0;
-  border-radius: ${pxToRem(4)};
-
-  margin-left: auto;
-  margin-top: ${pxToRem(24)};
-
-  padding: ${pxToRem(16)};
-`;
-
-export const ContentOption = styled.div`
-  height: 100%;
-
-  display: flex;
-
-  justify-content: space-between;
-  flex: 1;
-
-  flex-direction: column;
-`;
-
-export const Option = styled.div`
-  cursor: pointer;
-
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-
-  div {
-    width: ${pxToRem(7)};
-    height: ${pxToRem(7)};
-
-    background-color: transparent;
-    border-radius: 50%;
-  }
-
-  div.active {
-    background-color: #1e90ff;
-  }
-
-  span {
-    margin-left: ${pxToRem(8)};
-  }
-
-  span.active {
-    color: #1e90ff;
-  }
-`;
-
 export const ContentDebts = styled.div`
   background-color: #fff;
   border: 1px solid #e4e4f0;
@@ -219,30 +165,3 @@ export const WrapperSearchIcon = styled.div`
   }
 `;
 export const SearchIcon = styled(Search)``;
-
-export const WrapperList = styled.div`
-  width: 95%;
-
-  margin: ${pxToRem(20)} auto ${pxToRem(20)};
-
-  flex: 1;
-`;
-
-export const Item = styled.div`
-  width: 100%;
-  height: ${pxToRem(50)};
-  margin-bottom: ${pxToRem(12)};
-  padding: 0 ${pxToRem(24)};
-
-  border: 1px solid #e4e4f0;
-  border-radius: ${pxToRem(4)};
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const TextItem = styled.span`
-  color: #3b3d4d;
-`;

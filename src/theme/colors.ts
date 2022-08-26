@@ -9,7 +9,7 @@ export default {
     main: '#1e90ff',
     dark: '#3b3d4d',
     border: '#e4e4f0',
-    contrast: '',
+    contrast: '#836fff',
   },
   secondary: {
     light: '',

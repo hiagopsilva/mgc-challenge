@@ -1,24 +1,17 @@
 import React from 'react';
 
-import { Agreements, Debtors, Debts } from '~/atoms';
+import { Agreements, Debtors, Debts, Navigation, Search } from '~/atoms';
 import { Header, If } from '~/components';
-import { formatCPF, formatDate, currencyFormat } from '~/utils';
 
 import {
   Container,
   Content,
-  WrapperNavigation,
-  ContentOption,
-  Option,
   ContentDebts,
   Title,
   WrapperSearch,
   Input,
   SearchIcon,
   WrapperSearchIcon,
-  WrapperList,
-  Item,
-  TextItem,
 } from './styles';
 
 type Props = {
@@ -49,15 +42,10 @@ const Home: React.FC<Props> = ({
             <span className="info">Total de 12 resultados</span>
           </div>
 
-          <WrapperSearch>
-            <Input placeholder="Pesquisar..." />
-            <WrapperSearchIcon>
-              <SearchIcon />
-            </WrapperSearchIcon>
-          </WrapperSearch>
+          <Search />
 
           <If condition={stateMenu === 'Debts'}>
-            <Debts Debts={Debts} />
+            <Debts Debts={dataDebts} />
           </If>
 
           <If condition={stateMenu === 'Debtors'}>
@@ -69,30 +57,7 @@ const Home: React.FC<Props> = ({
           </If>
         </ContentDebts>
 
-        <WrapperNavigation>
-          <ContentOption>
-            <Option onClick={() => setStateMenu('Debtors')}>
-              <div className={stateMenu === 'Debtors' ? 'active' : ''} />
-              <span className={stateMenu === 'Debtors' ? 'active' : ''}>
-                Debtors
-              </span>
-            </Option>
-
-            <Option onClick={() => setStateMenu('Debts')}>
-              <div className={stateMenu === 'Debts' ? 'active' : ''} />
-              <span className={stateMenu === 'Debts' ? 'active' : ''}>
-                Debts
-              </span>
-            </Option>
-
-            <Option onClick={() => setStateMenu('Agreements')}>
-              <div className={stateMenu === 'Agreements' ? 'active' : ''} />
-              <span className={stateMenu === 'Agreements' ? 'active' : ''}>
-                Agreements
-              </span>
-            </Option>
-          </ContentOption>
-        </WrapperNavigation>
+        <Navigation setStateMenu={setStateMenu} stateMenu={stateMenu} />
       </Content>
     </Container>
   );

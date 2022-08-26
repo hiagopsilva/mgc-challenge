@@ -14,7 +14,7 @@ type Props = {
 };
 
 const HomeContainer: React.FC<Props> = () => {
-  const [stateMenu, setStateMenu] = useState(OPTION_MENU.DEBTORS);
+  const [stateMenu, setStateMenu] = useState<string>(OPTION_MENU.DEBTORS);
   const [dataDebtors, setDataDebtors] = useState([]);
   const [dataDebts, setDataDebts] = useState([]);
   const [dataAgreements, setAgreements] = useState([]);

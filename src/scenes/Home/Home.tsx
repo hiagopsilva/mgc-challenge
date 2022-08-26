@@ -9,7 +9,7 @@ import { Container, Content, ContentDebts, Title } from './styles';
 type Props = {
   username?: string;
   stateMenu: string;
-  setStateMenu: (value: any) => void;
+  setStateMenu: (value: string) => void;
   dataDebtors: any;
   dataDebts: any;
   dataAgreements: any;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { Router, Routes } from 'react-router-dom';
 
 import { createBrowserHistory } from 'history';
 
@@ -13,9 +13,11 @@ const browserHistory = createBrowserHistory();
 
 const RoutesContainer: React.FC = () => (
   <Router history={browserHistory}>
-    <Guest exact path={Routing.LOGIN} component={Login} />
-    <Private path={Routing.HOME} component={Home} />
-  </Router>
+    <Routes>
+      <Guest exact path={Routing.LOGIN} component={Login} />
+      <Private path={Routing.HOME} component={Home} />
+    </Routes>
+</Router>
 );
 
 export { Routing };

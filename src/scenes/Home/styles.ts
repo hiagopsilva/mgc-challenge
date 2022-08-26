@@ -7,6 +7,8 @@ const primaryLight = getTheme('primary.light');
 const primaryBorder = getTheme('primary.border');
 const secondaryMain = getTheme('secondary.main');
 
+const inMobile = getTheme('inMobile');
+
 export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -22,6 +24,12 @@ export const Content = styled.div`
   display: flex;
 
   margin: 0 ${pxToRem(140)};
+
+  @media ${inMobile} {
+    margin: 0 ${pxToRem(40)};
+
+    flex-direction: column-reverse;
+  }
 `;
 
 export const ContentDebts = styled.div`
@@ -48,6 +56,10 @@ export const ContentDebts = styled.div`
 
   div.header > span.info {
     color: ${secondaryMain};
+  }
+
+  @media ${inMobile} {
+    margin-right: 0;
   }
 `;
 

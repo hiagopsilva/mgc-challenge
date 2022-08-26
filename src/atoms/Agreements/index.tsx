@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { currencyFormat, formatDate } from '~/utils';
+import { currencyFormat } from '~/utils';
 
 import { Item, TextItem, Wrapper } from './styles';
 

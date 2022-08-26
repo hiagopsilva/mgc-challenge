@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import { createBrowserHistory } from 'history';
 
@@ -13,10 +13,10 @@ const browserHistory = createBrowserHistory();
 
 const RoutesContainer: React.FC = () => (
   <Router history={browserHistory}>
-    <Routes>
+    <Switch>
       <Guest exact path={Routing.LOGIN} component={Login} />
       <Private path={Routing.HOME} component={Home} />
-    </Routes>
+    </Switch>
 </Router>
 );
 

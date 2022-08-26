@@ -6,7 +6,7 @@ export default {
 
   primary: {
     light: '#fff',
-    main: '#',
+    main: '#1e90ff',
     dark: '#3b3d4d',
     border: '#e4e4f0',
     contrast: '',

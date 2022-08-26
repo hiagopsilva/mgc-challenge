@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Debtors, Debts } from '~/atoms';
+import { Agreements, Debtors, Debts } from '~/atoms';
 import { Header, If } from '~/components';
 import { formatCPF, formatDate, currencyFormat } from '~/utils';
 
@@ -65,24 +65,7 @@ const Home: React.FC<Props> = ({
           </If>
 
           <If condition={stateMenu === 'Agreements'}>
-            <WrapperList>
-              {dataAgreements.map((item: any) => (
-                <Item key={item.id}>
-                  <TextItem>{currencyFormat(item.valor)}</TextItem>
-                  <TextItem>{item.parcelas}</TextItem>
-                  <TextItem>{item.vencimento}</TextItem>
-                  <TextItem>{item.msg}</TextItem>
-                  <TextItem>
-                    ATIVO:
-                    {`${item.ativo}` ? ' SIM' : ' NÃO'}
-                  </TextItem>
-                  <TextItem>
-                    ACEITO:
-                    {`${item.aceito}` ? ' SIM' : ' NÃO'}
-                  </TextItem>
-                </Item>
-              ))}
-            </WrapperList>
+            <Agreements dataAgreements={dataAgreements} />
           </If>
         </ContentDebts>
 

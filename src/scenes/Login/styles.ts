@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { TextInput } from '~/components';
 import { getTheme, pxToRem } from '~/utils';
 
 const primaryBorder = getTheme('primary.border');
@@ -113,4 +114,10 @@ export const Image = styled.img`
   margin: auto;
 
   width: ${pxToRem(300)};
+`;
+
+export const TextInputStyled = styled(TextInput)`
+  & + & {
+    margin-top: ${pxToRem(20)};
+  }
 `;

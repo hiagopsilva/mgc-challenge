@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Logo } from '~/assets';
-import { TextInput } from '~/components';
-import { alert, FormikProps, useFormikContext } from '~/utils';
+import { FormikProps, useFormikContext } from '~/utils';
 
 import {
   Button,
@@ -12,6 +11,7 @@ import {
   Image,
   Title,
   WrapperLogo,
+  TextInputStyled,
 } from './styles';
 
 type Props = {};
@@ -25,14 +25,6 @@ const Login: React.FC<Props> = () => {
     touched,
   }: FormikProps<UserType.Login> = useFormikContext();
 
-  useEffect(() => {
-    if (errors.user || errors.password)
-      return alert({
-        message: 'Por favor, preencha todos os campos corretamente!',
-        type: 'error',
-      });
-  }, [touched]);
-
   return (
     <Container>
       <WrapperLogo>
@@ -45,7 +37,7 @@ const Login: React.FC<Props> = () => {
           Bem vindo de volta, insira seus dados de login.
         </Description>
 
-        <TextInput
+        <TextInputStyled
           value={values.user}
           name="user"
           id="user"
@@ -54,7 +46,7 @@ const Login: React.FC<Props> = () => {
           label="User"
         />
 
-        <TextInput
+        <TextInputStyled
           label="Senha"
           value={values.password}
           name="password"

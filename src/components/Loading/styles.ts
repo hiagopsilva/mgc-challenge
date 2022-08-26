@@ -20,7 +20,9 @@ export const WrapperLoading = styled.div`
 
 export const Loading = styled(ReactLoading).attrs(props => ({
   color: primaryLight(props),
-}))``;
+}))`
+  width: 100%;
+`;
 
 export const Title = styled.span`
   margin-top: ${pxToRem(20)};

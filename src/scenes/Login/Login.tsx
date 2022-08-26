@@ -74,7 +74,7 @@ const Login: React.FC<Props> = () => {
         </Line>
 
         <Button onClick={submitForm} type="button">
-          login
+          <span>login</span>
         </Button>
       </Content>
     </Container>

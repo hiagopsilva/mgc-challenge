@@ -40,7 +40,8 @@ export const Content = styled.div`
   @media ${inMobile} {
     margin: auto ${pxToRem(12)};
 
-    padding: ${pxToRem(24)} ${pxToRem(16)};
+    padding: ${pxToRem(24)} ${pxToRem(12)};
+    width: ${pxToRem(520)};
   }
 `;
 
@@ -116,10 +117,9 @@ export const Button = styled.button`
     background-color: #836fff;
   }
 
-  a {
-    text-decoration: none;
-
+  span {
     font-size: ${pxToRem(16)};
+    font-weight: bold;
     color: #fff;
   }
 `;

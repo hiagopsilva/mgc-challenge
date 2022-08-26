@@ -1,4 +1,10 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
+
+import { isEmpty } from 'lodash';
+
+import { If } from '~/components';
+import { formatCPF } from '~/utils';
 
 import {
   Container,
@@ -29,9 +35,15 @@ type Props = {
   username?: string;
   stateMenu: string;
   setStateMenu: (value: any) => void;
+  dataDebts: any;
 };
 
-const Home: React.FC<Props> = ({ username = '', stateMenu, setStateMenu }) => {
+const Home: React.FC<Props> = ({
+  username = '',
+  stateMenu,
+  setStateMenu,
+  dataDebts,
+}) => {
   return (
     <Container>
       <Header>
@@ -65,18 +77,17 @@ const Home: React.FC<Props> = ({ username = '', stateMenu, setStateMenu }) => {
             </WrapperSearchIcon>
           </WrapperSearch>
 
-          <WrapperList>
-            {[
-              1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4,
-              5, 6, 7, 8, 9,
-            ].map(item => (
-              <Item>
-                <TextItem>123.456.789-10</TextItem>
-                <TextItem>VITOR LUIZ ANTUNES</TextItem>
-                <TextItem>05/03/1998</TextItem>
-              </Item>
-            ))}
-          </WrapperList>
+          <If condition={!isEmpty(dataDebts)}>
+            <WrapperList>
+              {dataDebts.map((item: any) => (
+                <Item key={item.id}>
+                  <TextItem>{formatCPF(item.cpf)}</TextItem>
+                  <TextItem>{item.nome}</TextItem>
+                  <TextItem>{item.dataNascimento}</TextItem>
+                </Item>
+              ))}
+            </WrapperList>
+          </If>
         </ContentDebts>
 
         <WrapperNavigation>

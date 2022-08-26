@@ -16,14 +16,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const signIn = async (authFormData: UserType.Login) => {
     try {
-      await UserAPI.Auth({
+      const response = await UserAPI.Auth({
         user: authFormData.email,
         password: authFormData.password,
       });
 
-      Storage.setToken(authFormData.email);
+      Storage.setToken(response.data.token);
       isAuthenticated = true;
-      name = authFormData.email;
       name = authFormData.email;
 
       return true;

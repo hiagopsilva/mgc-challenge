@@ -23,5 +23,5 @@ export const formatDate = (date: string, formatDateCompleted?: boolean) => {
 };
 
 export const currencyFormat = (num: any) => {
-  return `R$ ${num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
+  return `${num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
 };

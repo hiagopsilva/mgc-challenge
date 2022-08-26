@@ -19,7 +19,7 @@ export default {
   },
   tertiary: {
     light: '',
-    main: '',
+    main: '#808080',
     dark: '',
     contrast: '',
   },

@@ -4,7 +4,6 @@ import { getTheme, pxToRem } from '~/utils';
 
 const primaryBorder = getTheme('primary.border');
 const primaryDark = getTheme('primary.dark');
-const secondaryMain = getTheme('secondary.main');
 const tertiaryMain = getTheme('tertiary.main');
 
 export const Wrapper = styled.div`

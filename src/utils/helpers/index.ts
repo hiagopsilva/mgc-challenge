@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash';
 import moment from 'moment';
 
 export * from './theme';
@@ -27,3 +28,6 @@ export const currencyFormat = (num: any) => {
 };
 
 export const hasValue = (value: boolean) => (value ? ' Sim' : ' Não');
+
+export const hasMessage = (value: string) =>
+  !isEmpty(value) ? value : 'Sem mensagem.';

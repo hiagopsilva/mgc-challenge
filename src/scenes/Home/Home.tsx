@@ -4,7 +4,7 @@ import React from 'react';
 import { isEmpty } from 'lodash';
 
 import { If } from '~/components';
-import { formatCPF } from '~/utils';
+import { formatCPF, formatDate } from '~/utils';
 
 import {
   Container,
@@ -83,7 +83,7 @@ const Home: React.FC<Props> = ({
                 <Item key={item.id}>
                   <TextItem>{formatCPF(item.cpf)}</TextItem>
                   <TextItem>{item.nome}</TextItem>
-                  <TextItem>{item.dataNascimento}</TextItem>
+                  <TextItem>{formatDate(item.dataNascimento)}</TextItem>
                 </Item>
               ))}
             </WrapperList>

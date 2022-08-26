@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { BrowserHistory } from 'history';
 
 import { AuthContext } from '~/contexts/auth';
-import { Routing } from '~/routes';
-import { request, Storage } from '~/services';
+// import { Routing } from '~/routes';
+import { request } from '~/services';
 
 import Home from './Home';
 

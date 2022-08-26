@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Avatar, MinLogo, Search } from '~/assets';
-import { getTheme, pxToRem } from '~/utils';
+import { pxToRem } from '~/utils';
 
 // Breakpoint
-const inMobile = getTheme('inMobile');
-const inTablet = getTheme('inTablet');
+// const inMobile = getTheme('inMobile');
+// const inTablet = getTheme('inTablet');
 
 export const Container = styled.div`
   width: 100%;

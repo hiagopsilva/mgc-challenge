@@ -1,7 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
 
-import { Storage } from '~/services';
-
 type CustomRequest = {
   authorization?: string;
 };

@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 
-import { isEmpty } from 'lodash';
-
 import { If } from '~/components';
-import { formatCPF, formatDate } from '~/utils';
+import { formatCPF, formatDate, currencyFormat } from '~/utils';
 
 import {
   Container,
@@ -99,7 +97,7 @@ const Home: React.FC<Props> = ({
                 <Item key={item.id}>
                   <TextItem>{item.carteira}</TextItem>
                   <TextItem>{formatDate(item.data)}</TextItem>
-                  <TextItem>{item.valor}</TextItem>
+                  <TextItem>{currencyFormat(item.valor)}</TextItem>
                   <TextItem>{item.ativo}</TextItem>
                   <TextItem>{item.bucket}</TextItem>
                 </Item>

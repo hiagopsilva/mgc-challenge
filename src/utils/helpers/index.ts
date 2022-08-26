@@ -21,3 +21,7 @@ export const formatDate = (date: string, formatDateCompleted?: boolean) => {
     return moment(newDate, ISO_DATE).format(SCREEN_DATE);
   }
 };
+
+export const currencyFormat = (num: any) => {
+  return `R$ ${num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
+};

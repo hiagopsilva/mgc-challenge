@@ -10,8 +10,8 @@ declare namespace UserType {
   };
 
   type AuthContextData = {
-    signIn(credentials: UserType.Login): Promise<boolean>;
     isAuthenticated?: boolean;
     name?: string;
+    signIn(credentials: UserType.Login): Promise<boolean>;
   };
 }

@@ -1,21 +1,26 @@
 import React from 'react';
 
-import { formatCPF, formatDate } from '~/utils';
+import { currencyFormat, formatDate } from '~/utils';
 
 import { Item, TextItem, Wrapper } from './styles';
 
 type Props = {
-  Debts: any;
+  dataDebts: any;
 };
 
-const Debts: React.FC<Props> = ({ Debts }) => {
+const Debts: React.FC<Props> = ({ dataDebts = {} }) => {
   return (
     <Wrapper>
-      {Debts.map((item: any) => (
+      {dataDebts.map((item: any) => (
         <Item key={item.id}>
-          <TextItem>{formatCPF(item.cpf)}</TextItem>
-          <TextItem>{item.nome}</TextItem>
-          <TextItem>{formatDate(item.dataNascimento, true)}</TextItem>
+          <TextItem>{item.carteira}</TextItem>
+          <TextItem>{formatDate(item.data)}</TextItem>
+          <TextItem>{currencyFormat(item.valor)}</TextItem>
+          <TextItem>
+            ATIVO:
+            {`${item.ativo}` ? ' SIM' : ' NÃO'}
+          </TextItem>
+          <TextItem>{item.bucket}</TextItem>
         </Item>
       ))}
     </Wrapper>

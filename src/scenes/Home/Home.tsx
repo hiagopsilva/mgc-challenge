@@ -3,16 +3,7 @@ import React from 'react';
 import { Agreements, Debtors, Debts, Navigation, Search } from '~/atoms';
 import { Header, If } from '~/components';
 
-import {
-  Container,
-  Content,
-  ContentDebts,
-  Title,
-  WrapperSearch,
-  Input,
-  SearchIcon,
-  WrapperSearchIcon,
-} from './styles';
+import { Container, Content, ContentDebts, Title } from './styles';
 
 type Props = {
   username?: string;
@@ -44,12 +35,12 @@ const Home: React.FC<Props> = ({
 
           <Search />
 
-          <If condition={stateMenu === 'Debts'}>
-            <Debts Debts={dataDebts} />
-          </If>
-
           <If condition={stateMenu === 'Debtors'}>
             <Debtors dataDebtors={dataDebtors} />
+          </If>
+
+          <If condition={stateMenu === 'Debts'}>
+            <Debts dataDebts={dataDebts} />
           </If>
 
           <If condition={stateMenu === 'Agreements'}>

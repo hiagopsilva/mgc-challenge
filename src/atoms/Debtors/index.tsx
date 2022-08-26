@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { currencyFormat, formatDate } from '~/utils';
+import { formatCPF, formatDate } from '~/utils';
 
 import { Item, TextItem, Wrapper } from './styles';
 
@@ -13,14 +13,9 @@ const Debtors: React.FC<Props> = ({ dataDebtors }) => {
     <Wrapper>
       {dataDebtors.map((item: any) => (
         <Item key={item.id}>
-          <TextItem>{item.carteira}</TextItem>
-          <TextItem>{formatDate(item.data)}</TextItem>
-          <TextItem>{currencyFormat(item.valor)}</TextItem>
-          <TextItem>
-            ATIVO:
-            {`${item.ativo}` ? ' SIM' : ' NÃO'}
-          </TextItem>
-          <TextItem>{item.bucket}</TextItem>
+          <TextItem>{formatCPF(item.cpf)}</TextItem>
+          <TextItem>{item.nome}</TextItem>
+          <TextItem>{formatDate(item.dataNascimento, true)}</TextItem>
         </Item>
       ))}
     </Wrapper>

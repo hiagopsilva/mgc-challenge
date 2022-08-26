@@ -18,6 +18,7 @@ const HomeContainer: React.FC<Props> = () => {
   const [dataDebtors, setDataDebtors] = useState([]);
   const [dataDebts, setDataDebts] = useState([]);
   const [dataAgreements, setAgreements] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { name } = useContext(AuthContext);
   // setTimeout(() => {
@@ -48,9 +49,12 @@ const HomeContainer: React.FC<Props> = () => {
   }, []);
 
   useEffect(() => {
+    setLoading(prevState => !prevState);
     stateMenu === OPTION_MENU.DEBTORS && fetchDataDebtors();
     stateMenu === OPTION_MENU.DEBTS && fetchDataDebts();
     stateMenu === OPTION_MENU.AGREEMENTS && fetchDataAgreements();
+
+    setLoading(prevState => !prevState);
   }, [stateMenu]);
 
   return (
@@ -61,6 +65,7 @@ const HomeContainer: React.FC<Props> = () => {
       dataDebts={dataDebts}
       dataDebtors={dataDebtors}
       dataAgreements={dataAgreements}
+      loading={loading}
     />
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Agreements, Debtors, Debts, Navigation, Search } from '~/atoms';
-import { Header, If } from '~/components';
+import { Header, If, Loading } from '~/components';
 import { OPTION_MENU } from '~/utils';
 
 import { Container, Content, ContentDebts, Title } from './styles';
@@ -13,6 +13,7 @@ type Props = {
   dataDebtors: any;
   dataDebts: any;
   dataAgreements: any;
+  loading: boolean;
 };
 
 const Home: React.FC<Props> = ({
@@ -22,10 +23,15 @@ const Home: React.FC<Props> = ({
   dataDebts,
   dataAgreements,
   dataDebtors,
+  loading,
 }) => {
   return (
     <Container>
       <Header username={username} />
+
+      <If condition={loading}>
+        <Loading />
+      </If>
 
       <Content>
         <ContentDebts>

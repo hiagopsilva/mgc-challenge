@@ -8,6 +8,8 @@ import { getTheme, pxToRem } from '~/utils';
 const primaryBorder = getTheme('primary.border');
 const primaryLight = getTheme('primary.light');
 
+const inMobile = getTheme('inMobile');
+
 export const Wrapper = styled.div`
   background-color: ${primaryLight};
 
@@ -22,6 +24,11 @@ export const Wrapper = styled.div`
 
   border-bottom: 1px solid ${primaryBorder};
   padding: 0 ${pxToRem(140)};
+
+  @media ${inMobile} {
+    padding: 0 ${pxToRem(40)};
+    height: ${pxToRem(90)};
+  }
 `;
 
 export const ContentLeft = styled.div`
@@ -29,7 +36,7 @@ export const ContentLeft = styled.div`
   flex-direction: row;
 `;
 
-export const TitleAvatar = styled.div``;
+export const TitleAvatar = styled.span``;
 
 export const ContentRight = styled.div`
   display: flex;

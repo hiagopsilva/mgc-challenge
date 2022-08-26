@@ -12,8 +12,8 @@ export default {
     contrast: '#836fff',
   },
   secondary: {
-    light: '',
-    main: '',
+    light: '#f9f9f9',
+    main: '#696969',
     dark: '',
     contrast: '',
   },

@@ -6,11 +6,12 @@ declare namespace UserType {
 
   type AuthForm = {
     user: string;
-    pass: string;
+    password: string;
   };
 
   type AuthContextData = {
     signIn(credentials: UserType.Login): Promise<boolean>;
     isAuthenticated?: boolean;
+    name?: string;
   };
 }

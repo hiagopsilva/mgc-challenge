@@ -1,7 +1,8 @@
 import { createContext, ReactNode } from 'react';
 
-// import { Storage } from '~/services';
+import { Storage } from '~/services';
 import { UserAPI } from '~/services/API';
+import { alert } from '~/utils';
 
 export const AuthContext = createContext({} as UserType.AuthContextData);
 
@@ -11,23 +12,31 @@ type AuthProviderProps = {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   let isAuthenticated = false;
+  let name = 'admin';
 
   const signIn = async (authFormData: UserType.Login) => {
-    const response = await UserAPI.Auth({
-      user: authFormData.email,
-      pass: authFormData.password,
-    });
+    try {
+      await UserAPI.Auth({
+        user: authFormData.email,
+        password: authFormData.password,
+      });
 
-    console.log(authFormData);
-    console.log(response);
-    // Storage.setToken('123');
-    isAuthenticated = true;
+      Storage.setToken(authFormData.email);
+      isAuthenticated = true;
+      name = authFormData.email;
+      name = authFormData.email;
 
-    return true;
+      return true;
+    } catch (error) {
+      console.log(error);
+      alert({ message: 'Ocorreu um erro!', type: 'error' });
+
+      return false;
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, signIn }}>
+    <AuthContext.Provider value={{ isAuthenticated, signIn, name }}>
       {children}
     </AuthContext.Provider>
   );

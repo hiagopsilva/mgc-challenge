@@ -1,29 +1,25 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Logo } from '~/assets';
-import { Welcome } from '~/components';
+import { BrowserHistory } from 'history';
+
+import { AuthContext } from '~/contexts/auth';
+import { Routing } from '~/routes';
 import { Storage } from '~/services';
 
-import { Container, WrapperBackground, Image, Content } from './styles';
+import Home from './Home';
 
-type Props = {};
-
-const Home: React.FC<Props> = () => {
-  setTimeout(() => {
-    Storage.clearToken();
-  }, 5000);
-
-  return (
-    <Container>
-      <Welcome />
-      <Content>
-        <WrapperBackground>
-          <Image src={`${Logo}`} alt="Logo Template" />
-        </WrapperBackground>
-      </Content>
-    </Container>
-  );
+type Props = {
+  history: BrowserHistory;
 };
 
-export default Home;
+const HomeContainer: React.FC<Props> = ({ history }) => {
+  const { name } = useContext(AuthContext);
+  // setTimeout(() => {
+  //   Storage.clearToken();
+  //   history.push(Routing.LOGIN);
+  // }, 5000);
+
+  return <Home username={name} />;
+};
+
+export default HomeContainer;

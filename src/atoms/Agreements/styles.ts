@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 import { getTheme, pxToRem } from '~/utils';
 
+type PropsItem = {
+  message?: boolean;
+};
+
 const primaryBorder = getTheme('primary.border');
 const primaryDark = getTheme('primary.dark');
 const tertiaryMain = getTheme('tertiary.main');
@@ -20,7 +24,7 @@ export const Item = styled.div`
   width: 49%;
   min-height: ${pxToRem(50)};
   margin-bottom: ${pxToRem(12)};
-  padding: 12px ${pxToRem(18)};
+  padding: ${pxToRem(12)} ${pxToRem(18)};
 
   border: 1px solid ${primaryBorder};
   border-radius: ${pxToRem(4)};
@@ -30,27 +34,10 @@ export const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-export const TextItem = styled.div`
+export const TextItem = styled.div<PropsItem>`
   color: ${primaryDark};
 
-  width: 49%;
-
-  margin-bottom: ${pxToRem(8)};
-  font-weight: bold;
-
-  span.label {
-    font-weight: bold;
-    color: ${tertiaryMain};
-  }
-`;
-
-export const TextItemMessage = styled.div`
-  color: ${primaryDark};
-
-  width: 100%;
-
-  margin-bottom: ${pxToRem(8)};
-  font-weight: bold;
+  width: ${props => (props.message ? '100%' : '49%')};
 
   span.label {
     font-weight: bold;

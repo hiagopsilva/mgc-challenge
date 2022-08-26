@@ -6,8 +6,6 @@ const primaryBorder = getTheme('primary.border');
 const primaryDark = getTheme('primary.dark');
 const tertiaryMain = getTheme('tertiary.main');
 
-const inMobile = getTheme('inMobile');
-
 export const Wrapper = styled.div`
   width: 95%;
 

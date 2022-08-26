@@ -13,9 +13,18 @@ const Debtors: React.FC<Props> = ({ dataDebtors }) => {
     <Wrapper>
       {dataDebtors.map((item: any) => (
         <Item key={item.id}>
-          <TextItem>{formatCPF(item.cpf)}</TextItem>
-          <TextItem>{item.nome}</TextItem>
-          <TextItem>{formatDate(item.dataNascimento, true)}</TextItem>
+          <TextItem>
+            <span className="label">CPF: </span>
+            {formatCPF(item.cpf)}
+          </TextItem>
+          <TextItem>
+            <span className="label">Nome: </span>
+            {item.nome}
+          </TextItem>
+          <TextItem>
+            <span className="label">Data de nasc.: </span>
+            {formatDate(item.dataNascimento, true)}
+          </TextItem>
         </Item>
       ))}
     </Wrapper>

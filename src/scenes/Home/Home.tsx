@@ -35,7 +35,9 @@ type Props = {
   username?: string;
   stateMenu: string;
   setStateMenu: (value: any) => void;
+  dataDebtors: any;
   dataDebts: any;
+  dataAgreements: any;
 };
 
 const Home: React.FC<Props> = ({
@@ -43,6 +45,8 @@ const Home: React.FC<Props> = ({
   stateMenu,
   setStateMenu,
   dataDebts,
+  dataAgreements,
+  dataDebtors,
 }) => {
   return (
     <Container>
@@ -77,13 +81,42 @@ const Home: React.FC<Props> = ({
             </WrapperSearchIcon>
           </WrapperSearch>
 
-          <If condition={!isEmpty(dataDebts)}>
+          <If condition={stateMenu === 'Debtors'}>
             <WrapperList>
-              {dataDebts.map((item: any) => (
+              {dataDebtors.map((item: any) => (
                 <Item key={item.id}>
                   <TextItem>{formatCPF(item.cpf)}</TextItem>
                   <TextItem>{item.nome}</TextItem>
                   <TextItem>{formatDate(item.dataNascimento)}</TextItem>
+                </Item>
+              ))}
+            </WrapperList>
+          </If>
+
+          <If condition={stateMenu === 'Debts'}>
+            <WrapperList>
+              {dataDebts.map((item: any) => (
+                <Item key={item.id}>
+                  <TextItem>{item.carteira}</TextItem>
+                  <TextItem>{item.data}</TextItem>
+                  <TextItem>{item.valor}</TextItem>
+                  <TextItem>{item.ativo}</TextItem>
+                  <TextItem>{item.bucket}</TextItem>
+                </Item>
+              ))}
+            </WrapperList>
+          </If>
+
+          <If condition={stateMenu === 'Agreements'}>
+            <WrapperList>
+              {dataAgreements.map((item: any) => (
+                <Item key={item.id}>
+                  <TextItem>{item.valor}</TextItem>
+                  <TextItem>{item.parcelas}</TextItem>
+                  <TextItem>{item.vencimento}</TextItem>
+                  <TextItem>{item.msg}</TextItem>
+                  <TextItem>{item.ativo}</TextItem>
+                  <TextItem>{item.aceito}</TextItem>
                 </Item>
               ))}
             </WrapperList>

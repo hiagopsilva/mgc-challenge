@@ -14,7 +14,9 @@ type Props = {
 
 const HomeContainer: React.FC<Props> = () => {
   const [stateMenu, setStateMenu] = useState('Debtors');
+  const [dataDebtors, setDataDebtors] = useState([]);
   const [dataDebts, setDataDebts] = useState([]);
+  const [dataAgreements, setAgreements] = useState([]);
 
   const { name } = useContext(AuthContext);
   // setTimeout(() => {
@@ -22,15 +24,33 @@ const HomeContainer: React.FC<Props> = () => {
   //   history.push(Routing.LOGIN);
   // }, 5000);
 
-  const fetchData = async () => {
+  const fetchDataDebtors = async () => {
     const { data } = await request.get('/debtors/list');
+
+    setDataDebtors(data);
+  };
+
+  const fetchDataDebts = async () => {
+    const { data } = await request.get('/debts/list');
 
     setDataDebts(data);
   };
 
+  const fetchDataAgreements = async () => {
+    const { data } = await request.get('/agreements/list');
+
+    setAgreements(data);
+  };
+
   useEffect(() => {
-    fetchData();
+    fetchDataDebtors();
   }, []);
+
+  useEffect(() => {
+    stateMenu === 'Debtors' && fetchDataDebtors();
+    stateMenu === 'Debts' && fetchDataDebts();
+    stateMenu === 'Agreements' && fetchDataAgreements();
+  }, [stateMenu]);
 
   return (
     <Home
@@ -38,6 +58,8 @@ const HomeContainer: React.FC<Props> = () => {
       stateMenu={stateMenu}
       setStateMenu={setStateMenu}
       dataDebts={dataDebts}
+      dataDebtors={dataDebtors}
+      dataAgreements={dataAgreements}
     />
   );
 };

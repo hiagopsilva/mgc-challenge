@@ -5,6 +5,7 @@ import { BrowserHistory } from 'history';
 import { AuthContext } from '~/contexts/auth';
 // import { Routing } from '~/routes';
 import { request } from '~/services';
+import { OPTION_MENU } from '~/utils';
 
 import Home from './Home';
 
@@ -13,7 +14,7 @@ type Props = {
 };
 
 const HomeContainer: React.FC<Props> = () => {
-  const [stateMenu, setStateMenu] = useState('Debtors');
+  const [stateMenu, setStateMenu] = useState(OPTION_MENU.DEBTORS);
   const [dataDebtors, setDataDebtors] = useState([]);
   const [dataDebts, setDataDebts] = useState([]);
   const [dataAgreements, setAgreements] = useState([]);
@@ -47,9 +48,9 @@ const HomeContainer: React.FC<Props> = () => {
   }, []);
 
   useEffect(() => {
-    stateMenu === 'Debtors' && fetchDataDebtors();
-    stateMenu === 'Debts' && fetchDataDebts();
-    stateMenu === 'Agreements' && fetchDataAgreements();
+    stateMenu === OPTION_MENU.DEBTORS && fetchDataDebtors();
+    stateMenu === OPTION_MENU.DEBTS && fetchDataDebts();
+    stateMenu === OPTION_MENU.AGREEMENTS && fetchDataAgreements();
   }, [stateMenu]);
 
   return (

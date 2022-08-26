@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { OPTION_NAVIGATION } from '~/utils';
+
 import { ContentOption, Option, Wrapper } from './styles';
 
 type Props = {
@@ -11,24 +13,13 @@ const Navigation: React.FC<Props> = ({ stateMenu, setStateMenu }) => {
   return (
     <Wrapper>
       <ContentOption>
-        <Option onClick={() => setStateMenu('Debtors')}>
-          <div className={stateMenu === 'Debtors' ? 'active' : ''} />
-          <span className={stateMenu === 'Debtors' ? 'active' : ''}>
-            Debtors
-          </span>
-        </Option>
+        {OPTION_NAVIGATION.map(item => (
+          <Option onClick={() => setStateMenu(item)}>
+            <div className={stateMenu === item ? 'active' : ''} />
 
-        <Option onClick={() => setStateMenu('Debts')}>
-          <div className={stateMenu === 'Debts' ? 'active' : ''} />
-          <span className={stateMenu === 'Debts' ? 'active' : ''}>Debts</span>
-        </Option>
-
-        <Option onClick={() => setStateMenu('Agreements')}>
-          <div className={stateMenu === 'Agreements' ? 'active' : ''} />
-          <span className={stateMenu === 'Agreements' ? 'active' : ''}>
-            Agreements
-          </span>
-        </Option>
+            <span className={stateMenu === item ? 'active' : ''}>{item}</span>
+          </Option>
+        ))}
       </ContentOption>
     </Wrapper>
   );

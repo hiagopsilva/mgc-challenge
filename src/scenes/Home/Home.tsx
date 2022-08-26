@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Agreements, Debtors, Debts, Navigation, Search } from '~/atoms';
 import { Header, If } from '~/components';
+import { OPTION_MENU } from '~/utils';
 
 import { Container, Content, ContentDebts, Title } from './styles';
 
@@ -35,15 +36,15 @@ const Home: React.FC<Props> = ({
 
           <Search />
 
-          <If condition={stateMenu === 'Debtors'}>
+          <If condition={stateMenu === OPTION_MENU.DEBTORS}>
             <Debtors dataDebtors={dataDebtors} />
           </If>
 
-          <If condition={stateMenu === 'Debts'}>
+          <If condition={stateMenu === OPTION_MENU.DEBTS}>
             <Debts dataDebts={dataDebts} />
           </If>
 
-          <If condition={stateMenu === 'Agreements'}>
+          <If condition={stateMenu === OPTION_MENU.AGREEMENTS}>
             <Agreements dataAgreements={dataAgreements} />
           </If>
         </ContentDebts>

@@ -17,7 +17,7 @@ const RoutesContainer: React.FC = () => (
       <Guest exact path={Routing.LOGIN} component={Login} />
       <Private path={Routing.HOME} component={Home} />
     </Switch>
-</Router>
+  </Router>
 );
 
 export { Routing };

@@ -14,6 +14,12 @@ import {
   WrapperNavigation,
   ContentOption,
   Option,
+  ContentDebts,
+  Title,
+  WrapperSearch,
+  Input,
+  SearchIcon,
+  WrapperSearchIcon,
 } from './styles';
 
 type Props = {
@@ -41,11 +47,25 @@ const Home: React.FC<Props> = ({ username = '' }) => {
       </Header>
 
       <Content>
+        <ContentDebts>
+          <div className="header">
+            <Title>Debts</Title>
+            <span className="info">Total de 12 resultados</span>
+          </div>
+
+          <WrapperSearch>
+            <Input placeholder="Pesquisar..." />
+            <WrapperSearchIcon>
+              <SearchIcon />
+            </WrapperSearchIcon>
+          </WrapperSearch>
+        </ContentDebts>
+
         <WrapperNavigation>
           <ContentOption>
-            <Option>Item 1</Option>
-            <Option>Item 2</Option>
-            <Option>Item 3</Option>
+            <Option>Debtors</Option>
+            <Option>Debts</Option>
+            <Option>Agreements</Option>
           </ContentOption>
         </WrapperNavigation>
       </Content>

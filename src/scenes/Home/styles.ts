@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import { Avatar, MinLogo } from '~/assets';
+import { Avatar, MinLogo, Search } from '~/assets';
 import { getTheme, pxToRem } from '~/utils';
 
 // Breakpoint
@@ -124,3 +124,75 @@ export const ContentOption = styled.div`
 export const Option = styled.div`
   cursor: pointer;
 `;
+
+export const ContentDebts = styled.div`
+  background-color: #fff;
+  border: 1px solid #e4e4f0;
+  border-radius: ${pxToRem(4)};
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  margin: ${pxToRem(24)};
+  margin-left: 0;
+
+  div.header {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    padding: ${pxToRem(20)};
+  }
+
+  div.header > span.info {
+    color: #696969;
+  }
+`;
+
+export const Title = styled.h1`
+  font-size: ${pxToRem(24)};
+`;
+
+export const WrapperSearch = styled.div`
+  width: 95%;
+  height: ${pxToRem(60)};
+
+  margin: 0 auto;
+
+  display: flex;
+
+  border: 1px solid #e4e4f0;
+  border-radius: ${pxToRem(4)};
+`;
+
+export const Input = styled.input`
+  font-size: ${pxToRem(16)};
+  width: 100%;
+
+  padding: 0 ${pxToRem(16)};
+  border: none;
+  border-right: 1px solid #e4e4f0;
+  border-bottom-left-radius: ${pxToRem(4)};
+  border-top-left-radius: ${pxToRem(4)};
+`;
+
+export const WrapperSearchIcon = styled.div`
+  width: ${pxToRem(70)};
+  border-bottom-right-radius: ${pxToRem(4)};
+  border-top-right-radius: ${pxToRem(4)};
+
+  cursor: pointer;
+  background-color: #1e90ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: #836fff;
+  }
+`;
+export const SearchIcon = styled(Search)``;

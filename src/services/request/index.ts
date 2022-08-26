@@ -7,7 +7,7 @@ export const request = Axios.create({
   headers: {
     accept: 'application/json',
   },
-  timeout: 15000, // 15 seconds timeout
+  timeout: 30000, // 15 seconds timeout
 });
 
 export default request;

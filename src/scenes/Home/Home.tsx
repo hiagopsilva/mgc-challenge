@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Debts } from '~/atoms';
 import { Header, If } from '~/components';
 import { formatCPF, formatDate, currencyFormat } from '~/utils';
 
@@ -56,15 +57,7 @@ const Home: React.FC<Props> = ({
           </WrapperSearch>
 
           <If condition={stateMenu === 'Debtors'}>
-            <WrapperList>
-              {dataDebtors.map((item: any) => (
-                <Item key={item.id}>
-                  <TextItem>{formatCPF(item.cpf)}</TextItem>
-                  <TextItem>{item.nome}</TextItem>
-                  <TextItem>{formatDate(item.dataNascimento, true)}</TextItem>
-                </Item>
-              ))}
-            </WrapperList>
+            <Debts dataDebtors={dataDebtors} />
           </If>
 
           <If condition={stateMenu === 'Debts'}>

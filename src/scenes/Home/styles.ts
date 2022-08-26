@@ -121,6 +121,31 @@ export const ContentOption = styled.div`
 
 export const Option = styled.div`
   cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  div {
+    width: ${pxToRem(7)};
+    height: ${pxToRem(7)};
+
+    background-color: transparent;
+    border-radius: 50%;
+  }
+
+  div.active {
+    background-color: #1e90ff;
+  }
+
+  span {
+    margin-left: ${pxToRem(8)};
+  }
+
+  span.active {
+    color: #1e90ff;
+  }
 `;
 
 export const ContentDebts = styled.div`

@@ -27,9 +27,11 @@ import {
 
 type Props = {
   username?: string;
+  stateMenu: string;
+  setStateMenu: (value: any) => void;
 };
 
-const Home: React.FC<Props> = ({ username = '' }) => {
+const Home: React.FC<Props> = ({ username = '', stateMenu, setStateMenu }) => {
   return (
     <Container>
       <Header>
@@ -52,7 +54,7 @@ const Home: React.FC<Props> = ({ username = '' }) => {
       <Content>
         <ContentDebts>
           <div className="header">
-            <Title>Debts</Title>
+            <Title>{stateMenu}</Title>
             <span className="info">Total de 12 resultados</span>
           </div>
 
@@ -79,9 +81,26 @@ const Home: React.FC<Props> = ({ username = '' }) => {
 
         <WrapperNavigation>
           <ContentOption>
-            <Option>Debtors</Option>
-            <Option>Debts</Option>
-            <Option>Agreements</Option>
+            <Option onClick={() => setStateMenu('Debtors')}>
+              <div className={stateMenu === 'Debtors' ? 'active' : ''} />
+              <span className={stateMenu === 'Debtors' ? 'active' : ''}>
+                Debtors
+              </span>
+            </Option>
+
+            <Option onClick={() => setStateMenu('Debts')}>
+              <div className={stateMenu === 'Debts' ? 'active' : ''} />
+              <span className={stateMenu === 'Debts' ? 'active' : ''}>
+                Debts
+              </span>
+            </Option>
+
+            <Option onClick={() => setStateMenu('Agreements')}>
+              <div className={stateMenu === 'Agreements' ? 'active' : ''} />
+              <span className={stateMenu === 'Agreements' ? 'active' : ''}>
+                Agreements
+              </span>
+            </Option>
           </ContentOption>
         </WrapperNavigation>
       </Content>

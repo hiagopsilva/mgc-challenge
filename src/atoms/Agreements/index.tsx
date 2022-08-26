@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { currencyFormat } from '~/utils';
+import { currencyFormat, hasValue } from '~/utils';
 
 import { Item, TextItem, TextItemMessage, Wrapper } from './styles';
 
@@ -28,12 +28,11 @@ const Agreements: React.FC<Props> = ({ dataAgreements }) => {
 
           <TextItem>
             <span className="label">Ativo: </span>
-            {`${item.ativo}` ? ' SIM' : ' NÃO'}
+            {hasValue(item.ativo)}
           </TextItem>
           <TextItem>
             <span className="label">Aceito: </span>
-            {`${item.aceito}` ? ' SIM' : ' NÃO'}
-            <br />
+            {hasValue(item.aceito)}
           </TextItem>
 
           <TextItemMessage className="message">

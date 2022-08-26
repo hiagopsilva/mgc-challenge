@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Logo } from '~/assets';
+import { TextInput } from '~/components';
 import { alert, FormikProps, useFormikContext } from '~/utils';
 
 import {
@@ -9,9 +10,6 @@ import {
   Content,
   Description,
   Image,
-  Input,
-  Line,
-  Text,
   Title,
   WrapperLogo,
 } from './styles';
@@ -47,30 +45,24 @@ const Login: React.FC<Props> = () => {
           Bem vindo de volta, insira seus dados de login.
         </Description>
 
-        <Line>
-          <Text>User</Text>
+        <TextInput
+          value={values.user}
+          name="user"
+          id="user"
+          onChange={handleChange('user')}
+          error={touched.user ? !!errors.user : false}
+          label="User"
+        />
 
-          <Input
-            value={values.user}
-            name="user"
-            id="user"
-            onChange={handleChange('user')}
-            error={touched.user ? !!errors.user : false}
-          />
-        </Line>
-
-        <Line className="last-child">
-          <Text>Senha</Text>
-
-          <Input
-            value={values.password}
-            name="password"
-            id="password"
-            onChange={handleChange('password')}
-            error={touched.password ? !!errors.password : false}
-            type="password"
-          />
-        </Line>
+        <TextInput
+          label="Senha"
+          value={values.password}
+          name="password"
+          id="password"
+          onChange={handleChange('password')}
+          error={touched.password ? !!errors.password : false}
+          type="password"
+        />
 
         <Button onClick={submitForm} type="button">
           <span>login</span>

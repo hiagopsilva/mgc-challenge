@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-concat */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 
@@ -98,7 +99,10 @@ const Home: React.FC<Props> = ({
                   <TextItem>{item.carteira}</TextItem>
                   <TextItem>{formatDate(item.data)}</TextItem>
                   <TextItem>{currencyFormat(item.valor)}</TextItem>
-                  <TextItem>{item.ativo}</TextItem>
+                  <TextItem>
+                    ATIVO:
+                    {`${item.ativo}` ? ' SIM' : ' NÃO'}
+                  </TextItem>
                   <TextItem>{item.bucket}</TextItem>
                 </Item>
               ))}

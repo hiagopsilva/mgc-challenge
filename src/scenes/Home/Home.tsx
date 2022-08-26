@@ -9,11 +9,13 @@ import { Container, Content, ContentDebts, Title } from './styles';
 type Props = {
   username?: string;
   stateMenu: string;
-  setStateMenu: (value: string) => void;
   dataDebtors: any;
   dataDebts: any;
   dataAgreements: any;
   loading: boolean;
+
+  setStateMenu: (value: string) => void;
+  handleLogout: () => void;
 };
 
 const Home: React.FC<Props> = ({
@@ -24,10 +26,11 @@ const Home: React.FC<Props> = ({
   dataAgreements,
   dataDebtors,
   loading,
+  handleLogout,
 }) => {
   return (
     <Container>
-      <Header username={username} />
+      <Header username={username} handleLogout={handleLogout} />
 
       <If condition={loading}>
         <Loading />

@@ -74,7 +74,6 @@ const Login: React.FC<Props> = () => {
         </Line>
 
         <Button onClick={submitForm} type="button">
-          {/* <Link to={Routing.HOME}>Login</Link> */}
           login
         </Button>
       </Content>

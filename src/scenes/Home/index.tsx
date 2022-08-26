@@ -1,19 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-
-import { BrowserHistory } from 'history';
+import { useHistory } from 'react-router-dom';
 
 import { AuthContext } from '~/contexts/auth';
-// import { Routing } from '~/routes';
-import { request } from '~/services';
+import { Routing } from '~/routes';
+import { request, Storage } from '~/services';
 import { OPTION_MENU } from '~/utils';
 
 import Home from './Home';
 
-type Props = {
-  history: BrowserHistory;
-};
+type Props = {};
 
 const HomeContainer: React.FC<Props> = () => {
+  const history = useHistory();
+
   const [stateMenu, setStateMenu] = useState<string>(OPTION_MENU.DEBTORS);
   const [dataDebtors, setDataDebtors] = useState([]);
   const [dataDebts, setDataDebts] = useState([]);
@@ -21,10 +20,6 @@ const HomeContainer: React.FC<Props> = () => {
   const [loading, setLoading] = useState(true);
 
   const { name } = useContext(AuthContext);
-  // setTimeout(() => {
-  //   Storage.clearToken();
-  //   history.push(Routing.LOGIN);
-  // }, 5000);
 
   const handleLoading = (stateLoading: boolean) => setLoading(stateLoading);
 
@@ -49,6 +44,11 @@ const HomeContainer: React.FC<Props> = () => {
     handleLoading(false);
   };
 
+  const handleLogout = async () => {
+    Storage.clearToken();
+    history.push(Routing.LOGIN);
+  };
+
   useEffect(() => {
     fetchDataDebtors();
   }, []);
@@ -70,6 +70,7 @@ const HomeContainer: React.FC<Props> = () => {
       dataDebtors={dataDebtors}
       dataAgreements={dataAgreements}
       loading={loading}
+      handleLogout={handleLogout}
     />
   );
 };

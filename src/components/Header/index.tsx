@@ -13,9 +13,10 @@ import {
 
 type Props = {
   username: string;
+  handleLogout: () => void;
 };
 
-const Header: FC<Props> = ({ username }) => {
+const Header: FC<Props> = ({ username, handleLogout }) => {
   return (
     <Wrapper>
       <ContentLeft>
@@ -25,7 +26,7 @@ const Header: FC<Props> = ({ username }) => {
       <ContentRight>
         <div className="content-avatar">
           <TitleAvatar>Olá, {username}</TitleAvatar>
-          <Logout to="/">Sair</Logout>
+          <Logout onClick={handleLogout}>Sair</Logout>
         </div>
 
         <WrapperAvatar>

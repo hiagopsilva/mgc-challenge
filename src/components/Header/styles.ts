@@ -71,7 +71,7 @@ export const WrapperAvatar = styled.div`
   cursor: pointer;
 `;
 
-export const Logout = styled(Link)`
+export const Logout = styled.div`
   font-size: ${pxToRem(12)};
 
   cursor: pointer;

@@ -87,7 +87,7 @@ const Home: React.FC<Props> = ({
                 <Item key={item.id}>
                   <TextItem>{formatCPF(item.cpf)}</TextItem>
                   <TextItem>{item.nome}</TextItem>
-                  <TextItem>{formatDate(item.dataNascimento)}</TextItem>
+                  <TextItem>{formatDate(item.dataNascimento, true)}</TextItem>
                 </Item>
               ))}
             </WrapperList>
@@ -98,7 +98,7 @@ const Home: React.FC<Props> = ({
               {dataDebts.map((item: any) => (
                 <Item key={item.id}>
                   <TextItem>{item.carteira}</TextItem>
-                  <TextItem>{item.data}</TextItem>
+                  <TextItem>{formatDate(item.data)}</TextItem>
                   <TextItem>{item.valor}</TextItem>
                   <TextItem>{item.ativo}</TextItem>
                   <TextItem>{item.bucket}</TextItem>

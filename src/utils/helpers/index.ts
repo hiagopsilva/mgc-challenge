@@ -1,6 +1,10 @@
-export * from './theme';
+import moment from 'moment';
 
+export * from './theme';
 export { default as alert } from './toast';
+
+const SCREEN_DATE = 'DD/MM/YYYY';
+const ISO_DATE = 'YYYY-MM-DD';
 
 export const formatCPF = (value: string) => {
   const newValueCPF = value.replace(/[^\d]/g, '');
@@ -8,6 +12,12 @@ export const formatCPF = (value: string) => {
   return newValueCPF.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
 };
 
-export const formatDate = (value: string) => {
-  return value.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
+export const formatDate = (date: string, formatDateCompleted?: boolean) => {
+  if (!formatDateCompleted) return moment(date, ISO_DATE).format(SCREEN_DATE);
+
+  if (formatDateCompleted) {
+    const newDate = moment(date, SCREEN_DATE).format(ISO_DATE);
+
+    return moment(newDate, ISO_DATE).format(SCREEN_DATE);
+  }
 };

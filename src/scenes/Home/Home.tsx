@@ -117,8 +117,14 @@ const Home: React.FC<Props> = ({
                   <TextItem>{item.parcelas}</TextItem>
                   <TextItem>{item.vencimento}</TextItem>
                   <TextItem>{item.msg}</TextItem>
-                  <TextItem>{item.ativo}</TextItem>
-                  <TextItem>{item.aceito}</TextItem>
+                  <TextItem>
+                    ATIVO:
+                    {`${item.ativo}` ? ' SIM' : ' NÃO'}
+                  </TextItem>
+                  <TextItem>
+                    ACEITO:
+                    {`${item.aceito}` ? ' SIM' : ' NÃO'}
+                  </TextItem>
                 </Item>
               ))}
             </WrapperList>

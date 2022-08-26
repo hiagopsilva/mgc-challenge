@@ -5,13 +5,13 @@ import { formatCPF, formatDate } from '~/utils';
 import { Item, TextItem, Wrapper } from './styles';
 
 type Props = {
-  dataDebtors: any;
+  Debts: any;
 };
 
-const Debts: React.FC<Props> = ({ dataDebtors }) => {
+const Debts: React.FC<Props> = ({ Debts }) => {
   return (
     <Wrapper>
-      {dataDebtors.map((item: any) => (
+      {Debts.map((item: any) => (
         <Item key={item.id}>
           <TextItem>{formatCPF(item.cpf)}</TextItem>
           <TextItem>{item.nome}</TextItem>

@@ -16,9 +16,9 @@ const HomeContainer: React.FC<Props> = () => {
   const history = useHistory();
 
   const [stateMenu, setStateMenu] = useState<string>(OPTION_MENU.DEBTORS);
-  const [dataDebtors, setDataDebtors] = useState<any>([]);
-  const [dataDebts, setDataDebts] = useState<any>([]);
-  const [dataAgreements, setAgreements] = useState<any>([]);
+  const [dataDebtors, setDataDebtors] = useState<DebtorsType.List[]>([]);
+  const [dataDebts, setDataDebts] = useState<DebtsType.List[]>([]);
+  const [dataAgreements, setAgreements] = useState<AgreementsType.List[]>([]);
   const [loading, setLoading] = useState(true);
   const [countTotal, setCountTotal] = useState(0);
   const [search, setSearch] = useState('');

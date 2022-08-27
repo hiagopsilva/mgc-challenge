@@ -5,13 +5,13 @@ import { currencyFormat, formatDate, hasValue } from '~/utils';
 import { Item, TextItem, Wrapper } from './styles';
 
 type Props = {
-  dataDebts: any;
+  dataDebts: DebtsType.List[];
 };
 
 const Debts: React.FC<Props> = ({ dataDebts = {} }) => {
   return (
     <Wrapper>
-      {dataDebts.map((item: any) => (
+      {dataDebts.map((item: DebtsType.List) => (
         <Item key={item.id}>
           <TextItem>
             <span className="label">Carteira: </span>

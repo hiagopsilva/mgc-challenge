@@ -10,7 +10,7 @@ type Props = {
   label: string;
   type?: string;
 
-  onChange: (value: any) => void;
+  onChange: () => void;
 };
 
 const InputComponent: React.FC<Props> = ({

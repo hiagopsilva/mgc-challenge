@@ -9,9 +9,9 @@ import { Container, Content, ContentDebts, Title } from './styles';
 type Props = {
   username?: string;
   stateMenu: string;
-  dataDebtors: any;
-  dataDebts: any;
-  dataAgreements: any;
+  dataDebtors: DebtorsType.List[];
+  dataDebts: DebtsType.List[];
+  dataAgreements: AgreementsType.List[];
   loading: boolean;
   countTotal: number;
   search: string;

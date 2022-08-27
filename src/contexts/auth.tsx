@@ -21,7 +21,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         password: authFormData.password,
       });
 
-      Storage.setToken(response.data.token);
+      Storage.setToken(response.data);
       Storage.setItem('username', authFormData.user);
 
       isAuthenticated = true;

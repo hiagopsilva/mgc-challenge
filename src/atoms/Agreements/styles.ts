@@ -10,6 +10,8 @@ const primaryBorder = getTheme('primary.border');
 const primaryDark = getTheme('primary.dark');
 const tertiaryMain = getTheme('tertiary.main');
 
+const inMobile = getTheme('inMobile');
+
 export const Wrapper = styled.div`
   width: 95%;
 
@@ -32,6 +34,10 @@ export const Item = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  @media ${inMobile} {
+    width: 100%;
+  }
 `;
 
 export const TextItem = styled.div<PropsItem>`
@@ -42,5 +48,10 @@ export const TextItem = styled.div<PropsItem>`
   span.label {
     font-weight: bold;
     color: ${tertiaryMain};
+  }
+
+  @media ${inMobile} {
+    width: 100%;
+    margin-bottom: ${pxToRem(4)};
   }
 `;

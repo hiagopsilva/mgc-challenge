@@ -6,6 +6,8 @@ const primaryBorder = getTheme('primary.border');
 const primaryDark = getTheme('primary.dark');
 const tertiaryMain = getTheme('tertiary.main');
 
+const inMobile = getTheme('inMobile');
+
 export const Wrapper = styled.div`
   width: 95%;
 
@@ -27,6 +29,10 @@ export const Item = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  @media ${inMobile} {
+    width: 100%;
+  }
 `;
 
 export const TextItem = styled.span`

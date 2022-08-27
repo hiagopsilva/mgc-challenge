@@ -5,4 +5,4 @@ export const validationForm = yup.object({
   password: yup.string().required('Campo Obrigatório'),
 });
 
-export const initialValues = { user: 'admin', password: 'trevisan' };
+export const initialValues = { user: '', password: '' };

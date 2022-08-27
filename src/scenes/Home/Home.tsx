@@ -20,6 +20,7 @@ type Props = {
   handleLogout: () => void;
   handleSearch: () => void;
   setSearch: (values: string) => void;
+  clearSearch: () => void;
 };
 
 const Home: React.FC<Props> = ({
@@ -35,6 +36,7 @@ const Home: React.FC<Props> = ({
   search,
   handleSearch,
   setSearch,
+  clearSearch,
 }) => {
   return (
     <Container>
@@ -55,6 +57,7 @@ const Home: React.FC<Props> = ({
             <Search
               OnChange={setSearch}
               OnClick={handleSearch}
+              clearSearch={clearSearch}
               value={search}
             />
 

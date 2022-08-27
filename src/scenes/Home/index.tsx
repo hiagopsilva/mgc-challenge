@@ -57,15 +57,23 @@ const HomeContainer: React.FC<Props> = () => {
   };
 
   const handleSearch = async () => {
-    const { data } = await request.post('/debtors/search', { value: search });
+    const { data } = await request.post('/debtors/search', {
+      value: search.toUpperCase(),
+    });
 
-    if (isEmpty({ data })) {
+    if (isEmpty(data)) {
       return alert({ message: 'Nenhum resultado encontrado!', type: 'error' });
     }
 
     setDataDebtors([data]);
     handleLoading(false);
-    setCountTotal(data.length);
+    setCountTotal([data].length);
+  };
+
+  const clearSearch = async () => {
+    setSearch('');
+
+    await fetchDataDebtors();
   };
 
   useEffect(() => {
@@ -94,6 +102,7 @@ const HomeContainer: React.FC<Props> = () => {
       search={search}
       setSearch={setSearch}
       handleSearch={handleSearch}
+      clearSearch={clearSearch}
     />
   );
 };

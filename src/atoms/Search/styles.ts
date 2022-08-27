@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Search } from '~/assets';
+import { Close, Search } from '~/assets';
 import { getTheme, pxToRem } from '~/utils';
 
 const primaryBorder = getTheme('primary.border');
@@ -21,13 +21,10 @@ export const Wrapper = styled.div`
 
 export const Input = styled.input`
   font-size: ${pxToRem(16)};
-  width: 100%;
+  width: 86%;
 
   padding: 0 ${pxToRem(16)};
   border: none;
-  border-right: 1px solid ${primaryBorder};
-  border-bottom-left-radius: ${pxToRem(4)};
-  border-top-left-radius: ${pxToRem(4)};
 `;
 
 export const WrapperSearchIcon = styled.div`
@@ -42,8 +39,22 @@ export const WrapperSearchIcon = styled.div`
   align-items: center;
   justify-content: center;
 
+  margin-left: auto;
+
   &:hover {
     background-color: ${primaryContrast};
   }
 `;
+
 export const SearchIcon = styled(Search)``;
+
+export const ButtonClose = styled.button`
+  background-color: transparent;
+  border: none;
+`;
+
+export const IconClose = styled(Close)`
+  margin: auto;
+
+  cursor: pointer;
+`;

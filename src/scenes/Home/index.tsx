@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { isEmpty } from 'lodash';
+
 import { AuthContext } from '~/contexts/auth';
 import { Routing } from '~/routes';
 import { request, Storage } from '~/services';
-import { OPTION_MENU } from '~/utils';
+import { alert, OPTION_MENU } from '~/utils';
 
 import Home from './Home';
 
@@ -14,11 +16,12 @@ const HomeContainer: React.FC<Props> = () => {
   const history = useHistory();
 
   const [stateMenu, setStateMenu] = useState<string>(OPTION_MENU.DEBTORS);
-  const [dataDebtors, setDataDebtors] = useState([]);
-  const [dataDebts, setDataDebts] = useState([]);
-  const [dataAgreements, setAgreements] = useState([]);
+  const [dataDebtors, setDataDebtors] = useState<any>([]);
+  const [dataDebts, setDataDebts] = useState<any>([]);
+  const [dataAgreements, setAgreements] = useState<any>([]);
   const [loading, setLoading] = useState(true);
   const [countTotal, setCountTotal] = useState(0);
+  const [search, setSearch] = useState('');
 
   const { name } = useContext(AuthContext);
 
@@ -53,6 +56,18 @@ const HomeContainer: React.FC<Props> = () => {
     history.push(Routing.LOGIN);
   };
 
+  const handleSearch = async () => {
+    const { data } = await request.post('/debtors/search', { value: search });
+
+    if (isEmpty({ data })) {
+      return alert({ message: 'Nenhum resultado encontrado!', type: 'error' });
+    }
+
+    setDataDebtors([data]);
+    handleLoading(false);
+    setCountTotal(data.length);
+  };
+
   useEffect(() => {
     fetchDataDebtors();
   }, []);
@@ -76,6 +91,9 @@ const HomeContainer: React.FC<Props> = () => {
       loading={loading}
       handleLogout={handleLogout}
       countTotal={countTotal}
+      search={search}
+      setSearch={setSearch}
+      handleSearch={handleSearch}
     />
   );
 };

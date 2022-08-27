@@ -14,9 +14,12 @@ type Props = {
   dataAgreements: any;
   loading: boolean;
   countTotal: number;
+  search: string;
 
   setStateMenu: (value: string) => void;
   handleLogout: () => void;
+  handleSearch: () => void;
+  setSearch: (values: string) => void;
 };
 
 const Home: React.FC<Props> = ({
@@ -29,6 +32,9 @@ const Home: React.FC<Props> = ({
   loading,
   handleLogout,
   countTotal,
+  search,
+  handleSearch,
+  setSearch,
 }) => {
   return (
     <Container>
@@ -45,9 +51,13 @@ const Home: React.FC<Props> = ({
             <span className="info">Total de {countTotal} resultados</span>
           </div>
 
-          <Search />
-
           <If condition={stateMenu === OPTION_MENU.DEBTORS}>
+            <Search
+              OnChange={setSearch}
+              OnClick={handleSearch}
+              value={search}
+            />
+
             <Debtors dataDebtors={dataDebtors} />
           </If>
 

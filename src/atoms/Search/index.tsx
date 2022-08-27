@@ -2,13 +2,22 @@ import React from 'react';
 
 import { Input, SearchIcon, Wrapper, WrapperSearchIcon } from './styles';
 
-type Props = {};
+type Props = {
+  value: string;
 
-const Search: React.FC<Props> = () => {
+  OnChange: (values: any) => void;
+  OnClick: (values: any) => void;
+};
+
+const Search: React.FC<Props> = ({ OnChange, value, OnClick }) => {
   return (
     <Wrapper>
-      <Input placeholder="Pesquisar..." />
-      <WrapperSearchIcon>
+      <Input
+        placeholder="Pesquisar por nome..."
+        onChange={e => OnChange(e.target.value)}
+        value={value}
+      />
+      <WrapperSearchIcon onClick={OnClick}>
         <SearchIcon />
       </WrapperSearchIcon>
     </Wrapper>

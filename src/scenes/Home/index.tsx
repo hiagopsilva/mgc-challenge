@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { AuthContext } from '~/contexts/auth';
 import { Routing } from '~/routes';
 import { request, Storage } from '~/services';
+import store from '~/store';
 import { OPTION_MENU } from '~/utils';
 
 import Home from './Home';
@@ -12,6 +13,10 @@ type Props = {};
 
 const HomeContainer: React.FC<Props> = () => {
   const history = useHistory();
+
+  store.dispatch({ type: 'getName' });
+
+  const { user2 } = store.getState();
 
   const [stateMenu, setStateMenu] = useState<string>(OPTION_MENU.DEBTORS);
   const [dataDebtors, setDataDebtors] = useState([]);

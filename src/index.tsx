@@ -1,10 +1,12 @@
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 import { ThemeProvider } from 'styled-components';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 import Routes from '~/routes';
+import store from '~/store';
 import {
   breakpoints,
   colors,
@@ -25,11 +27,13 @@ const theme = {
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <AuthProvider>
+    {/* <AuthProvider> */}
+    <Provider store={store}>
       <Toastify.ToastContainer />
 
       <Routes />
-    </AuthProvider>
+    </Provider>
+    {/* </AuthProvider> */}
     <GlobalStyles />
   </ThemeProvider>,
   document.getElementById('root'),

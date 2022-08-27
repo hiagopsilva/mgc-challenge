@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { isEmpty } from 'lodash';
-
 import { If } from '~/components';
+import { isEmpty } from '~/utils';
 
 import {
   ButtonClose,

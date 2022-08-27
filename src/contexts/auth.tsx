@@ -1,7 +1,6 @@
 import { createContext, ReactNode } from 'react';
 
-import { Storage } from '~/services';
-import { UserAPI } from '~/services/API';
+import { Storage, UserAPI } from '~/services';
 import { alert } from '~/utils';
 
 export const AuthContext = createContext({} as UserType.AuthContextData);

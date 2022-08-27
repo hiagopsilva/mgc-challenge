@@ -1,7 +1,5 @@
 import ReactDOM from 'react-dom';
 
-import { ThemeProvider } from 'styled-components';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 import Routes from '~/routes';
@@ -14,7 +12,7 @@ import {
 } from '~/theme';
 
 import { AuthProvider } from './contexts/auth';
-import { Toastify } from './utils/modules';
+import { Toastify, ThemeProvider } from './utils';
 
 const theme = {
   ...colors,

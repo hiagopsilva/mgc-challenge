@@ -1,12 +1,11 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
 
 import { Location } from 'history';
-import { isEmpty } from 'lodash';
 
 import { If } from '~/components';
 import { Routing } from '~/routes';
 import { Storage } from '~/services';
+import { isEmpty, Redirect, Route } from '~/utils';
 
 type Props = {
   component: React.ElementType;

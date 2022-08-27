@@ -1,12 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-
-import { isEmpty } from 'lodash';
 
 import { AuthContext } from '~/contexts/auth';
 import { Routing } from '~/routes';
 import { request, Storage } from '~/services';
-import { alert, OPTION_MENU } from '~/utils';
+import { alert, isEmpty, OPTION_MENU, useHistory } from '~/utils';
 
 import Home from './Home';
 

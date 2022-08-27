@@ -1,4 +1,4 @@
-import { yup } from '~/utils/modules';
+import { yup } from '~/utils';
 
 export const validationForm = yup.object({
   user: yup.string().required('Campo Obrigatório'),

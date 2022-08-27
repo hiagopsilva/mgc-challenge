@@ -5,13 +5,13 @@ import { currencyFormat, hasMessage, hasValue } from '~/utils';
 import { Item, TextItem, Wrapper } from './styles';
 
 type Props = {
-  dataAgreements: any;
+  dataAgreements: AgreementsType.List[];
 };
 
 const Agreements: React.FC<Props> = ({ dataAgreements }) => {
   return (
     <Wrapper>
-      {dataAgreements.map((item: any) => (
+      {dataAgreements.map((item: AgreementsType.List) => (
         <Item key={item.id}>
           <TextItem>
             <span className="label">R$ </span>

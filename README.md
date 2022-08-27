@@ -5,11 +5,15 @@
 
 > Projeto de listagem de debtors, debts e agreements.
 
+
 ### LINK API
 > https://api-recupera.herokuapp.com
 
 ### LINK DO SITE EM PRODUÇÃO
 > https://mgc-holding-challenge.netlify.app
+
+## DEMO
+<img width="1436" alt="image" src="https://user-images.githubusercontent.com/47197695/187014799-cf90c962-9687-468b-a062-e46c88501f77.png">
 
 ### STACKS UTILIZADAS
 - REACTJS

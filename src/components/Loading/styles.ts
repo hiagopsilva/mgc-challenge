@@ -8,7 +8,7 @@ const secondaryDark = getTheme('secondary.dark');
 export const WrapperLoading = styled.div`
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
 
   background-color: ${secondaryDark};
 

@@ -8,7 +8,7 @@ type Props = {
   dataDebts: DebtsType.List[];
 };
 
-const Debts: React.FC<Props> = ({ dataDebts = {} }) => {
+const Debts: React.FC<Props> = ({ dataDebts }) => {
   return (
     <Wrapper>
       {dataDebts.map((item: DebtsType.List) => (

@@ -4,7 +4,7 @@ import { Wrapper } from './styles';
 
 type Props = {
   label: string;
-  onClick: (value: any) => void;
+  onClick: () => void;
 };
 
 const ButtonComponent: React.FC<Props> = ({ onClick, label, ...rest }) => {

@@ -11,8 +11,8 @@ type AuthProviderProps = {
 };
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  let isAuthenticated = false;
-  let name = 'admin';
+  let isAuthenticated = !!Storage.getToken();
+  let name = Storage.getItem('username');
 
   const signIn = async (authFormData: UserType.Login) => {
     try {
@@ -22,6 +22,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       });
 
       Storage.setToken(response.data.token);
+      Storage.setItem('username', authFormData.user);
+
       isAuthenticated = true;
       name = authFormData.user;
 
@@ -35,7 +37,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, signIn, name }}>
+    <AuthContext.Provider value={{ isAuthenticated, signIn, name: name || '' }}>
       {children}
     </AuthContext.Provider>
   );

@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Routes from '~/routes';
-import store from '~/store';
+// import store from '~/store';
 import {
   breakpoints,
   colors,
@@ -27,13 +27,13 @@ const theme = {
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    {/* <AuthProvider> */}
-    <Provider store={store}>
+    <AuthProvider>
+      {/* <Provider store={store}> */}
       <Toastify.ToastContainer />
 
       <Routes />
-    </Provider>
-    {/* </AuthProvider> */}
+      {/* </Provider> */}
+    </AuthProvider>
     <GlobalStyles />
   </ThemeProvider>,
   document.getElementById('root'),

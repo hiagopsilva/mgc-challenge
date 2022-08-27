@@ -10,6 +10,14 @@ export default class StorageService {
     return Storage.getItem(STORAGE_KEYS.TOKEN);
   }
 
+  static getItem(item: string): string | null {
+    return Storage.getItem(item.toUpperCase());
+  }
+
+  static setItem(item: string, values: string): void {
+    Storage.setItem(item.toUpperCase(), values);
+  }
+
   static setToken(token: string): void {
     Storage.setItem(STORAGE_KEYS.TOKEN, token);
   }

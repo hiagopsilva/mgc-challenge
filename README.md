@@ -1,9 +1,26 @@
-<h1 align="center">Welcome to Template Front-end 👋</h1>
+<h1 align="center">MGC Holding Challenge</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Este repositório é um template frontend com ReactJS e Typescript ( e umas libs adicionais ) para utilizar em projetos.
+> Projeto de listagem de debtors, debts e agreements.
+
+### LINK API
+> https://api-recupera.herokuapp.com
+
+### LINK DO SITE EM PRODUÇÃO
+> https://mgc-holding-challenge.netlify.app
+
+### STACKS UTILIZADAS
+- REACTJS
+- TYPESCRIPT
+- STYLED COMPONENTS
+- CONTEXT API
+- AXIOS
+- REACT ROUTER DOM
+- MOMENT
+- FORMIK
+- YUP
 
 ## Install
 
@@ -13,8 +30,20 @@ yarn
 
 ## Usage
 
+Ambiente DEV
+
 ```sh
-yarn start
+yarn dev
+```
+
+Ambiente HML
+```sh
+yarn hml
+```
+
+Ambiente PRD
+```sh
+yarn prd
 ```
 
 ## Author

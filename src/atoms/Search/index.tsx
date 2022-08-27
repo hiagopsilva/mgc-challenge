@@ -5,8 +5,8 @@ import { Input, SearchIcon, Wrapper, WrapperSearchIcon } from './styles';
 type Props = {
   value: string;
 
-  OnChange: (values: any) => void;
-  OnClick: (values: any) => void;
+  OnChange: (values: string) => void;
+  OnClick: () => void;
 };
 
 const Search: React.FC<Props> = ({ OnChange, value, OnClick }) => {

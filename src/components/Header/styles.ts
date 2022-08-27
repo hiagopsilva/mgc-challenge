@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   padding: 0 ${pxToRem(140)};
 
   @media ${inMobile} {
-    padding: 0 ${pxToRem(40)};
+    padding: 0 ${pxToRem(20)};
     height: ${pxToRem(90)};
   }
 `;

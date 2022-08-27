@@ -26,7 +26,7 @@ export const Content = styled.div`
   margin: 0 ${pxToRem(140)};
 
   @media ${inMobile} {
-    margin: 0 ${pxToRem(40)};
+    margin: 0 ${pxToRem(20)};
 
     flex-direction: column-reverse;
   }
@@ -52,6 +52,11 @@ export const ContentDebts = styled.div`
     align-items: flex-end;
 
     padding: ${pxToRem(20)};
+
+    @media ${inMobile} {
+      align-items: center;
+      padding: ${pxToRem(20)} ${pxToRem(10)};
+    }
   }
 
   div.header > span.info {
